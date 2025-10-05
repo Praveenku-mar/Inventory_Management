@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="card shadow animate__animated animate__zoomIn">
+    <div class="card-header bg-warning text-dark">
+        <h4><i class="fas fa-exchange-alt"></i> {{ 'Edit' if movement else 'Add' }} Product Movement</h4>
+    </div>
+    <div class="card-body">
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            <div class="mb-3">
+                <label class="form-label"><i class="fas fa-box"></i> Product</label>
+                {{ form.product_id(class="form-select") }}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label"><i class="fas fa-arrow-left"></i> From Location</label>
+                {{ form.from_location(class="form-select") }}
+                <small class="form-text text-muted">Leave blank if adding stock</small>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label"><i class="fas fa-arrow-right"></i> To Location</label>
+                {{ form.to_location(class="form-select") }}
+                <small class="form-text text-muted">Leave blank if removing stock</small>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label"><i class="fas fa-sort-numeric-up"></i> Quantity</label>
+                {{ form.qty(class="form-control", placeholder="Enter Quantity") }}
+            </div>
+
+            <button type="submit" class="btn btn-success"><i class="fas fa-check"></i> Submit</button>
+            <a href="{{ url_for('movements') }}" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Back</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

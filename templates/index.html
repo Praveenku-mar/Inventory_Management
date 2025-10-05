@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4 animate__animated animate__fadeIn"><i class="fas fa-tachometer-alt"></i> Dashboard</h2>
+
+    <div class="row">
+        <!-- Products Card -->
+        <div class="col-md-4 mb-4 animate__animated animate__fadeInUp animate__delay-1s">
+            <div class="card text-white bg-primary h-100">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-box"></i> Products</h5>
+                    <p class="card-text">{{ products|length }} total</p>
+                    <a href="{{ url_for('products') }}" class="btn btn-light btn-sm"><i class="fas fa-eye"></i> View</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Locations Card -->
+        <div class="col-md-4 mb-4 animate__animated animate__fadeInUp animate__delay-2s">
+            <div class="card text-white bg-success h-100">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-map-marker-alt"></i> Locations</h5>
+                    <p class="card-text">{{ locations|length }} total</p>
+                    <a href="{{ url_for('locations') }}" class="btn btn-light btn-sm"><i class="fas fa-eye"></i> View</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Movements Card -->
+        <div class="col-md-4 mb-4 animate__animated animate__fadeInUp animate__delay-3s">
+            <div class="card text-white bg-warning h-100">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-exchange-alt"></i> Movements</h5>
+                    <p class="card-text">{{ movements|length }} total</p>
+                    <a href="{{ url_for('movements') }}" class="btn btn-light btn-sm"><i class="fas fa-eye"></i> View</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
